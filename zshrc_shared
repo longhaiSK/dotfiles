@@ -1,0 +1,12 @@
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format git branch: " (branchname)" in yellow
+zstyle ':vcs_info:git:*' formats ' (%F{yellow}%b%f)'
+
+# Enable variable substitution
+setopt PROMPT_SUBST
+
+# Define the prompt: user@host path (branch)
+PROMPT='%n@%m %~${vcs_info_msg_0_} '
