@@ -8,5 +8,8 @@ zstyle ':vcs_info:git:*' formats ' (%F{yellow}%b%f)'
 # Enable variable substitution
 setopt PROMPT_SUBST
 
-# Define the prompt: user@host path (branch)
-PROMPT='%n@%m %~${vcs_info_msg_0_} '
+# Define the prompt: user@host last-dir (branch)
+# %c: Last component of the current working directory
+# %3c: Last three components (optional, often useful)
+# The example below uses %c for maximum conciseness.
+PROMPT='%n@%m %c${vcs_info_msg_0_}: '
