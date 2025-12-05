@@ -1,15 +1,22 @@
 # Load version control information
 autoload -Uz vcs_info
-precmd() { vcs_info }
 
-# Format git branch: " (branchname)" in yellow
+precmd() {
+  vcs_info
+
+  # Make a line of 60 '#'
+  local ruler
+  ruler=$(printf '%*s' 80 '' | tr ' ' '#')
+
+  # White '#' line
+  print -P "%F{white}$ruler%f"
+  # or equivalently: print -P "%F{255}$ruler%f"
+}
+
+# Git branch formatting
 zstyle ':vcs_info:git:*' formats ' (%F{yellow}%b%f)'
 
-# Enable variable substitution
 setopt PROMPT_SUBST
 
-# Define the prompt: user@host last-dir (branch)
-# %c: Last component of the current working directory
-# %3c: Last three components (optional, often useful)
-# The example below uses %c for maximum conciseness.
-PROMPT='%n@%m %c${vcs_info_msg_0_}: '
+# Red prompt
+PROMPT='%F{red}%n@%m %c${vcs_info_msg_0_}: %f'
