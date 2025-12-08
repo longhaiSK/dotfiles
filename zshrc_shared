@@ -20,3 +20,4 @@ setopt PROMPT_SUBST
 
 # Red prompt
 PROMPT='%F{red}%n@%m %c${vcs_info_msg_0_}: %f'
+
