@@ -21,4 +21,6 @@ setopt PROMPT_SUBST
 # Red prompt
 PROMPT='%F{red}%n@%m %c${vcs_info_msg_0_}: %f'
 
-alias spython='source ~/Github/bin/.venv/bin/activate'
+alias gpy='source ~/Github/bin/.venv/bin/activate'
+alias thispy='source ./.venv/bin/activate'
+
